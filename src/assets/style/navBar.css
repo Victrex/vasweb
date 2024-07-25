@@ -1,0 +1,90 @@
+nav {
+    grid-area: navBar;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    > ul {
+        display: flex;
+        list-style: none;
+        > li {
+            margin-left: 1rem;
+            > a {
+                text-decoration: none;
+                color: #333;
+                cursor: pointer;
+                height: 50px;
+                &:hover {
+                    color: #0077cc;
+                }
+            }
+        }
+    }
+
+    .social{
+        display: flex;
+        align-items: center;
+        > a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: #333;
+            &:hover {
+                color: #0077cc;
+            }
+        }
+    }
+
+    .burger{
+        display: none;
+    }
+}
+@media screen and (min-width: 769px){
+    nav> ul {
+        transform: translate(0px, 0px) !important;
+        opacity: 1 !important;
+        display: flex;
+    }
+}
+@media screen and (max-width: 768px){
+    nav {
+        > ul {
+            display: none;
+            transition: all 0.3s ease-in-out; /* Añadir transición */
+            &.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 4.5rem;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 4.5rem);
+                background-color: #f8f9fa;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                justify-content: space-evenly;
+                > li {
+                    margin-left: 0;
+                    margin-bottom: 1rem;
+                    > a {
+                        display: block;
+                        padding: 1rem 2rem;
+                        text-align: center;
+                        color: #333;
+                        font-size: 1.5rem;
+                        &:hover {
+                            color: #0077cc;
+                        }
+                    }
+                }
+            }
+        }
+        .burger{
+            display: block;
+            cursor: pointer;
+        }
+    }
+}
